@@ -104,31 +104,45 @@ function createForm(){
 
 for (let i = 0; i < formData.length; i++) {
 
-  let inputs = document.createElement('input');
-  inputs.setAttribute('type', formData[i].type);
-  inputs.setAttribute('id', formData[i].id);
-  inputs.setAttribute('placeholder', formData[i].label);
+  if (formData[i].type === 'select'){
+    let select = document.createElement('select');
+    // dropdown.setAttribute('value', formData[i].options);
+
+    for (let j = 0; j < formData[i].options.length; j++) {
+      let option = document.createElement('option');
+          option.setAttribute('label', formData[i].options[j].label);
+          option.setAttribute('value', formData[i].options[j].value);
+          select.appendChild(option);
+          fields.appendChild(select);
+    }
+
+    } else if (formData[i].type === 'textarea'){
+        let textBox = document.createElement ('textarea');
+          textBox.setAttribute('id', formData[i].id);
+          textBox.setAttribute('placeholder', formData[i].label);
+          textBox.setAttribute('rows', 10);
+          fields.appendChild(textBox);
+    } else {let inputs = document.createElement('input');
+          inputs.setAttribute('type', formData[i].type);
+          inputs.setAttribute('id', formData[i].id);
+          inputs.setAttribute('placeholder', formData[i].label);
 
   form.appendChild(inputs);
-
-  let dropdown = document.createElement('select');
-  dropdown.setAttribute('value', formData[i].options);
-
-  if (formData[i] === 'select'){
-    return ()
-  } else {
-    return ()
   }
+    }
+
+  // let dropdown = document.createElement('select');
+  // dropdown.setAttribute('value', formData[i].options);
+
+  // if (formData[i].type === 'select'){
+  //   dropdown
+  // }
 
 
-
-  let comment = document.createElement('textarea');
-  comment.setAttribute('text', formData[i].type);
-
-
+  // let comment = document.createElement('textarea');
+  // comment.setAttribute('text', formData[i].type);
 
 
 }
-}
-
 createForm();
+
