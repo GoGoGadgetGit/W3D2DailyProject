@@ -120,7 +120,7 @@ for (let i = 0; i < formData.length; i++) {
         let textBox = document.createElement ('textarea');
           textBox.setAttribute('id', formData[i].id);
           textBox.setAttribute('placeholder', formData[i].label);
-          textBox.setAttribute('rows', 10);
+          textBox.setAttribute('rows', 5);
           fields.appendChild(textBox);
     } else {let inputs = document.createElement('input');
           inputs.setAttribute('type', formData[i].type);
